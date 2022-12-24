@@ -21,6 +21,8 @@ class MainTableViewController: UITableViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(AddButtonTaped))
         navigationItem.hidesBackButton = true
         tableView.register(MyTableViewCell.self, forCellReuseIdentifier: cellId)
+        tableView.separatorStyle = .none
+        tableView.showsVerticalScrollIndicator = false
         
 
     }
@@ -45,8 +47,16 @@ class MainTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! MyTableViewCell
 
-
+        
         return cell
+    }
+    override func tableView(_ tableView: UITableView,
+               heightForRowAt indexPath: IndexPath) -> CGFloat {
+       // Make the first row larger to accommodate a custom cell.
+
+
+       // Use the default size for all other rows.
+       return 70
     }
     
 
