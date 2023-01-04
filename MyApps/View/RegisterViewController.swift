@@ -37,6 +37,29 @@ class RegisterViewController: UIViewController {
 
 }
 extension RegisterViewController{
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        loginButton.layer.cornerRadius = loginButton.frame.height / 2
+        loginButton.layer.masksToBounds = false
+        loginButton.layer.shadowRadius = 7
+        loginButton.layer.shadowOpacity = 0.5
+        loginButton.layer.shadowColor = UIColor.blue.cgColor
+        loginButton.layer.shadowPath = UIBezierPath(roundedRect: loginButton.bounds, cornerRadius: (loginButton.frame.height / 2 + 5)).cgPath
+        
+        loginTextField.layer.cornerRadius = loginButton.frame.height / 2
+        loginTextField.layer.masksToBounds = false
+        loginTextField.layer.shadowRadius = 7
+        loginTextField.layer.shadowOpacity = 0.5
+        loginTextField.layer.shadowColor = UIColor.blue.cgColor
+        loginTextField.layer.shadowPath = UIBezierPath(roundedRect: loginTextField.bounds, cornerRadius: (loginTextField.frame.height)).cgPath
+        
+        passwordTextField.layer.cornerRadius = loginButton.frame.height / 2
+        passwordTextField.layer.masksToBounds = false
+        passwordTextField.layer.shadowRadius = 7
+        passwordTextField.layer.shadowOpacity = 0.5
+        passwordTextField.layer.shadowColor = UIColor.blue.cgColor
+        passwordTextField.layer.shadowPath = UIBezierPath(roundedRect: loginTextField.bounds, cornerRadius: (loginTextField.frame.height)).cgPath
+    }
     private func initialize(){
         view.backgroundColor = .white
         
@@ -87,7 +110,7 @@ extension RegisterViewController{
         loginButton.backgroundColor = UIColor(red: 84/255, green: 118/255, blue: 171/255, alpha: 1)
         loginButton.snp.makeConstraints{ maker in
             maker.centerX.equalToSuperview()
-            maker.top.equalTo(passwordTextField).inset(50)
+            maker.top.equalTo(passwordTextField).inset(70)
             maker.width.equalTo(100)
             
         }

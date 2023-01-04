@@ -16,6 +16,7 @@ class MyTableViewCell: UITableViewCell {
     let passwordLabel = UILabel()
     let image = UIImage(named: "steam")
     let stackView = UIStackView()
+    let someView = UIView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -40,20 +41,33 @@ class MyTableViewCell: UITableViewCell {
 
 }
 extension MyTableViewCell{
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        someView.backgroundColor = .white
+        someView.layer.cornerRadius = self.frame.height / 2
+        someView.layer.masksToBounds = false
+        someView.layer.shadowRadius = 3
+        someView.layer.shadowOpacity = 0.5
+        someView.layer.shadowColor = UIColor.blue.cgColor
+        someView.layer.shadowPath = UIBezierPath(roundedRect: someView.bounds, cornerRadius: (someView.frame.height / 2)).cgPath
+    }
     private func initialize(){
-        self.backgroundColor = .cyan
-        self.layer.cornerRadius = self.frame.height / 2
-        self.layer.masksToBounds = true
+        
         
        
+        contentView.addSubview(someView)
+        someView.snp.makeConstraints{ maker in
+            maker.top.bottom.equalTo(contentView).inset(5)
+            maker.right.left.equalTo(contentView).inset(30)
+        }
         
-   
-        myImageView.contentMode = .scaleAspectFit
+        myImageView.layer.borderWidth = 0.5
+        myImageView.contentMode = .scaleAspectFill
         myImageView.image = image
-        contentView.addSubview(myImageView)
+        someView.addSubview(myImageView)
+        myImageView.layer.cornerRadius = 30
         myImageView.snp.makeConstraints{maker in
-            maker.width.height.equalTo(64)
-            maker.top.bottom.equalToSuperview().inset(3)
+            maker.width.height.equalTo(60)
             maker.left.equalToSuperview().inset(50)
         }
         
@@ -68,7 +82,7 @@ extension MyTableViewCell{
         self.addSubview(passwordLabel)
         passwordLabel.snp.makeConstraints{ maker in
             maker.left.equalTo(myImageView).inset(100)
-            maker.top.equalTo(loginLabel).inset(30)
+            maker.top.equalTo(loginLabel).inset(25)
         }
        
         
