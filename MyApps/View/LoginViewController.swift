@@ -19,6 +19,8 @@ class LoginViewController: UIViewController {
     let statusLabel = UILabel()
     let registerQLabel = UILabel()
     let registerButton = UIButton()
+    let myImageView = UIImageView()
+    let image = UIImage(named: "AppIcon")
     
     var loginViewModel = AccountsViewModel()
     
@@ -39,42 +41,57 @@ class LoginViewController: UIViewController {
 extension LoginViewController{
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        
         loginButton.layer.cornerRadius = loginButton.frame.height / 2
         loginButton.layer.masksToBounds = false
         loginButton.layer.shadowRadius = 7
         loginButton.layer.shadowOpacity = 0.5
-        loginButton.layer.shadowColor = UIColor.blue.cgColor
+        loginButton.layer.shadowColor = UIColor.purple.cgColor
         loginButton.layer.shadowPath = UIBezierPath(roundedRect: loginButton.bounds, cornerRadius: (loginButton.frame.height / 2 + 5)).cgPath
         
         loginTextField.layer.cornerRadius = loginButton.frame.height / 2
         loginTextField.layer.masksToBounds = false
         loginTextField.layer.shadowRadius = 7
         loginTextField.layer.shadowOpacity = 0.5
-        loginTextField.layer.shadowColor = UIColor.blue.cgColor
+        loginTextField.layer.shadowColor = UIColor.purple.cgColor
         loginTextField.layer.shadowPath = UIBezierPath(roundedRect: loginTextField.bounds, cornerRadius: (loginTextField.frame.height)).cgPath
         
         passwordTextField.layer.cornerRadius = loginButton.frame.height / 2
         passwordTextField.layer.masksToBounds = false
         passwordTextField.layer.shadowRadius = 7
         passwordTextField.layer.shadowOpacity = 0.5
-        passwordTextField.layer.shadowColor = UIColor.blue.cgColor
+        passwordTextField.layer.shadowColor = UIColor.purple.cgColor
         passwordTextField.layer.shadowPath = UIBezierPath(roundedRect: loginTextField.bounds, cornerRadius: (loginTextField.frame.height)).cgPath
     }
     private func initialize(){
         view.backgroundColor = .white
         
         //App name label
-        nameLabel.text = "MyApps"
+        nameLabel.text = ""
         view.addSubview(nameLabel)
         nameLabel.snp.makeConstraints{ maker in
             maker.centerX.equalToSuperview()
             maker.top.equalToSuperview().inset(120)
         }
+        
+        myImageView.contentMode = .scaleAspectFill
+        myImageView.image = image
+        myImageView.layer.borderColor = .none
+        myImageView.layer.cornerRadius = 70
+        myImageView.layer.masksToBounds = true
+        view.addSubview(myImageView)
+        myImageView.snp.makeConstraints{maker in
+            maker.top.equalTo(nameLabel).inset(20)
+            maker.width.height.equalTo(140)
+            maker.centerX.equalToSuperview()
+        }
+        
+        
         //login label
         loginLabel.text = "Login"
         view.addSubview(loginLabel)
         loginLabel.snp.makeConstraints{ maker in
-            maker.top.equalTo(nameLabel).inset(50)
+            maker.top.equalTo(nameLabel).inset(150)
             maker.left.equalToSuperview().inset(50)
         }
         //login textField

@@ -12,9 +12,9 @@ class MyTableViewCell: UITableViewCell {
     
     
     let myImageView = UIImageView()
+    let image = UIImage(named: "steam")
     let loginLabel = UILabel()
     let passwordLabel = UILabel()
-    let image = UIImage(named: "steam")
     let stackView = UIStackView()
     let someView = UIView()
     

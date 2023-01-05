@@ -19,7 +19,7 @@ class MainTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(AddButtonTaped))
-        navigationItem.hidesBackButton = true
+        navigationItem.hidesBackButton = false
         tableView.register(MyTableViewCell.self, forCellReuseIdentifier: cellId)
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
