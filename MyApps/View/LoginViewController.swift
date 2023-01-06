@@ -64,6 +64,7 @@ extension LoginViewController:  UITextFieldDelegate{
         passwordTextField.layer.shadowColor = UIColor.purple.cgColor
         passwordTextField.layer.shadowPath = UIBezierPath(roundedRect: loginTextField.bounds, cornerRadius: (loginTextField.frame.height)).cgPath
     }
+    
     private func initialize(){
         view.backgroundColor = .white
         
@@ -74,7 +75,7 @@ extension LoginViewController:  UITextFieldDelegate{
             maker.centerX.equalToSuperview()
             maker.top.equalToSuperview().inset(120)
         }
-        
+        //ImageView
         myImageView.contentMode = .scaleAspectFill
         myImageView.image = image
         myImageView.layer.borderColor = .none
