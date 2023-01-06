@@ -36,7 +36,7 @@ class RegisterViewController: UIViewController {
     */
 
 }
-extension RegisterViewController{
+extension RegisterViewController: UITextFieldDelegate{
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         loginButton.layer.cornerRadius = loginButton.frame.height / 2
@@ -78,7 +78,7 @@ extension RegisterViewController{
             maker.left.equalToSuperview().inset(50)
         }
         //login textField
-        
+        self.loginTextField.delegate = self
         view.addSubview(loginTextField)
         loginTextField.borderStyle = .roundedRect
         loginTextField.placeholder = "Login"
@@ -94,6 +94,7 @@ extension RegisterViewController{
             maker.left.equalToSuperview().inset(50)
         }
         //password textField
+        self.passwordTextField.delegate = self
         view.addSubview(passwordTextField)
         passwordTextField.borderStyle = .roundedRect
         passwordTextField.placeholder = "Password"
@@ -144,5 +145,17 @@ extension RegisterViewController{
         statusLabel.textColor = .gray
         
     }
+    //hide keyboard using button
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        loginTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        
+        return true
+    }
+    //hide keyboard pressing anywhere
+    override func touchesBegan(_ touches:Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing (true)
+    }
+
 
 }

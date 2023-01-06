@@ -38,7 +38,8 @@ class LoginViewController: UIViewController {
 
 
 
-extension LoginViewController{
+extension LoginViewController:  UITextFieldDelegate{
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
@@ -95,7 +96,7 @@ extension LoginViewController{
             maker.left.equalToSuperview().inset(50)
         }
         //login textField
-        
+        self.loginTextField.delegate = self
         view.addSubview(loginTextField)
         loginTextField.borderStyle = .roundedRect
         loginTextField.placeholder = "Login"
@@ -111,6 +112,7 @@ extension LoginViewController{
             maker.left.equalToSuperview().inset(50)
         }
         //password textField
+        self.passwordTextField.delegate = self
         view.addSubview(passwordTextField)
         passwordTextField.borderStyle = .roundedRect
         passwordTextField.placeholder = "Password"
@@ -186,10 +188,21 @@ extension LoginViewController{
         
 
     }
+    
     @objc func registerButtonPressed(){
         let registerViewController = RegisterViewController()
         navigationController?.pushViewController(registerViewController, animated: true)
-       
+    }
+    //hide keyboard using button
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        loginTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        
+        return true
+    }
+    //hide keyboard pressing anywhere
+    override func touchesBegan(_ touches:Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing (true)
     }
 
     
