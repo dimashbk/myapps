@@ -15,6 +15,7 @@
 		1D2BE07C294CA51B00AB13DD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2BE07B294CA51B00AB13DD /* LoginViewController.swift */; };
 		1D2BE081294CA51C00AB13DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D2BE080294CA51C00AB13DD /* Assets.xcassets */; };
 		1D2BE084294CA51C00AB13DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D2BE082294CA51C00AB13DD /* LaunchScreen.storyboard */; };
+		1D5DE190296B122300B639D8 /* TableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5DE18F296B122300B639D8 /* TableViewModel.swift */; };
 		1D7BF1FE294D935300809FD2 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BF1FD294D935300809FD2 /* RegisterViewController.swift */; };
 		1D7BF200294E278B00809FD2 /* UserStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BF1FF294E278B00809FD2 /* UserStorage.swift */; };
 		1DF1337F29688375005389E8 /* AddEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF1337E29688375005389E8 /* AddEditViewController.swift */; };
@@ -36,6 +37,7 @@
 		1D2BE080294CA51C00AB13DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1D2BE083294CA51C00AB13DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1D2BE085294CA51C00AB13DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1D5DE18F296B122300B639D8 /* TableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModel.swift; sourceTree = "<group>"; };
 		1D7BF1FD294D935300809FD2 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		1D7BF1FF294E278B00809FD2 /* UserStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStorage.swift; sourceTree = "<group>"; };
 		1DF1337E29688375005389E8 /* AddEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				1DF133862969BE10005389E8 /* AppsViewModel.swift */,
 				1D1A6C0A294CDE4A003C5629 /* AccountsViewModel.swift */,
 				1D1A6C07294CDDF0003C5629 /* Binding */,
+				1D5DE18F296B122300B639D8 /* TableViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D7BF200294E278B00809FD2 /* UserStorage.swift in Sources */,
+				1D5DE190296B122300B639D8 /* TableViewModel.swift in Sources */,
 				1DF133872969BE10005389E8 /* AppsViewModel.swift in Sources */,
 				1D2BE07C294CA51B00AB13DD /* LoginViewController.swift in Sources */,
 				1D1A6C09294CDE02003C5629 /* Dynamic.swift in Sources */,

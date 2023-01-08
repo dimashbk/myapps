@@ -50,8 +50,11 @@ class MainTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! MyTableViewCell
-
+        let App = appsViewModel.setStorage(appsViewModel.someKey).accounts[indexPath.row]
+        cell.loginLabel.text = App.login
+        cell.passwordLabel.text = App.password
         
         return cell
     }
