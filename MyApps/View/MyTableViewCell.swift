@@ -21,7 +21,7 @@ class MyTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         initialize()
-        
+
     }
     
     required init?(coder: NSCoder) {
@@ -53,8 +53,7 @@ extension MyTableViewCell{
     }
     private func initialize(){
         
-        
-       
+
         contentView.addSubview(someView)
         someView.snp.makeConstraints{ maker in
             maker.top.bottom.equalTo(contentView).inset(5)
@@ -107,8 +106,8 @@ extension MyTableViewCell{
 //        myImageView.widthAnchor.constraint (equalToConstant: self.frame.width / 2 - 10),
 //        myImageView.heightAnchor.constraint (equalToConstant: 25)
 //        ])
-        
     }
+   
     
     
 }

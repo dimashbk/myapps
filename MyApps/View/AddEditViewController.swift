@@ -1,14 +1,13 @@
 //
-//  RegisterViewController.swift
+//  AddEditViewController.swift
 //  MyApps
 //
-//  Created by Dinmukhamed on 17.12.2022.
+//  Created by Dinmukhamed on 06.01.2023.
 //
 
 import UIKit
-import SnapKit
 
-class RegisterViewController: UIViewController {
+class AddEditViewController: UIViewController {
     
     let nameLabel = UILabel()
     let loginLabel = UILabel()
@@ -17,12 +16,17 @@ class RegisterViewController: UIViewController {
     let passwordTextField = UITextField()
     let loginButton = UIButton(type: .system)
     let statusLabel = UILabel()
-    var registerViewModel = AccountsViewModel()
-   
+    let registerQLabel = UILabel()
+    let registerButton = UIButton()
+    let myImageView = UIImageView()
+    let image = UIImage(named: "AppIcon")
+    var appsViewModel = AppsViewModel()
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         initialize()
-        bindViewModel()
+
     }
     
 
@@ -37,45 +41,61 @@ class RegisterViewController: UIViewController {
     */
 
 }
-extension RegisterViewController: UITextFieldDelegate{
+
+extension AddEditViewController: UITextFieldDelegate{
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        
         loginButton.layer.cornerRadius = loginButton.frame.height / 2
         loginButton.layer.masksToBounds = false
         loginButton.layer.shadowRadius = 7
         loginButton.layer.shadowOpacity = 0.5
-        loginButton.layer.shadowColor = UIColor.blue.cgColor
+        loginButton.layer.shadowColor = UIColor.purple.cgColor
         loginButton.layer.shadowPath = UIBezierPath(roundedRect: loginButton.bounds, cornerRadius: (loginButton.frame.height / 2 + 5)).cgPath
         
         loginTextField.layer.cornerRadius = loginButton.frame.height / 2
         loginTextField.layer.masksToBounds = false
         loginTextField.layer.shadowRadius = 7
         loginTextField.layer.shadowOpacity = 0.5
-        loginTextField.layer.shadowColor = UIColor.blue.cgColor
+        loginTextField.layer.shadowColor = UIColor.purple.cgColor
         loginTextField.layer.shadowPath = UIBezierPath(roundedRect: loginTextField.bounds, cornerRadius: (loginTextField.frame.height)).cgPath
         
         passwordTextField.layer.cornerRadius = loginButton.frame.height / 2
         passwordTextField.layer.masksToBounds = false
         passwordTextField.layer.shadowRadius = 7
         passwordTextField.layer.shadowOpacity = 0.5
-        passwordTextField.layer.shadowColor = UIColor.blue.cgColor
+        passwordTextField.layer.shadowColor = UIColor.purple.cgColor
         passwordTextField.layer.shadowPath = UIBezierPath(roundedRect: loginTextField.bounds, cornerRadius: (loginTextField.frame.height)).cgPath
     }
     private func initialize(){
         view.backgroundColor = .white
         
         //App name label
-        nameLabel.text = "MyApps"
+        nameLabel.text = ""
         view.addSubview(nameLabel)
         nameLabel.snp.makeConstraints{ maker in
             maker.centerX.equalToSuperview()
             maker.top.equalToSuperview().inset(120)
         }
+        //ImageView
+        myImageView.contentMode = .scaleAspectFill
+        myImageView.image = image
+        myImageView.layer.borderColor = .none
+        myImageView.layer.cornerRadius = 70
+        myImageView.layer.masksToBounds = true
+        view.addSubview(myImageView)
+        myImageView.snp.makeConstraints{maker in
+            maker.top.equalTo(nameLabel).inset(20)
+            maker.width.height.equalTo(140)
+            maker.centerX.equalToSuperview()
+        }
+        
+        
         //login label
         loginLabel.text = "Login"
         view.addSubview(loginLabel)
         loginLabel.snp.makeConstraints{ maker in
-            maker.top.equalTo(nameLabel).inset(50)
+            maker.top.equalTo(nameLabel).inset(150)
             maker.left.equalToSuperview().inset(50)
         }
         //login textField
@@ -103,13 +123,13 @@ extension RegisterViewController: UITextFieldDelegate{
             maker.top.equalTo(passwordLabel).inset(25)
             maker.left.right.equalToSuperview().inset(50)
         }
-        //register button
+        //login button
         view.addSubview(loginButton)
-        loginButton.setTitle("Register", for: .normal)
+        loginButton.setTitle("Save", for: .normal)
         loginButton.setTitleColor(.white, for: .normal)
         loginButton.setTitleColor(.lightGray, for: .focused)
         loginButton.layer.cornerRadius = 15
-        loginButton.backgroundColor = UIColor(red: 84/255, green: 118/255, blue: 171/255, alpha: 1)
+        loginButton.backgroundColor = UIColor(red: 104/255, green: 192/255, blue: 215/255, alpha: 1)
         loginButton.snp.makeConstraints{ maker in
             maker.centerX.equalToSuperview()
             maker.top.equalTo(passwordTextField).inset(70)
@@ -118,33 +138,12 @@ extension RegisterViewController: UITextFieldDelegate{
         }
         //login target
         loginButton.addTarget(self,  action: #selector(loginButtonPressed), for: .touchUpInside)
-        
-        //status label
-        statusLabel.text = "Status"
-        statusLabel.textColor = .white
-        view.addSubview(statusLabel)
-        statusLabel.snp.makeConstraints{ maker in
-            maker.top.equalTo(loginButton).inset(70)
-            maker.centerX.equalToSuperview()
-        }
-        
-        
-        
-    }
-    //binding viewModel
-    func bindViewModel(){
-        registerViewModel.statusText.bind({ (statusText) in
-            DispatchQueue.main.async {
-                self.statusLabel.text = statusText
-            }
-        })
     }
 
     //loginButton pressed action
     @objc func loginButtonPressed(){
-        registerViewModel.userRegButtonPressed(login: (loginTextField.text) ?? "", password: passwordTextField.text ?? "")
-        statusLabel.textColor = .gray
-        
+        appsViewModel.userSaveButtonPressed(login: (loginTextField.text) ?? "", password: passwordTextField.text ?? "")
+        print(appsViewModel.someKey)
     }
     //hide keyboard using button
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -155,8 +154,9 @@ extension RegisterViewController: UITextFieldDelegate{
     }
     //hide keyboard pressing anywhere
     override func touchesBegan(_ touches:Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing (true)
+        self.view.endEditing(true)
     }
-
-
+    
+    
+    
 }

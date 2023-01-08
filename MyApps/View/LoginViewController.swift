@@ -23,7 +23,6 @@ class LoginViewController: UIViewController {
     let image = UIImage(named: "AppIcon")
     
     var loginViewModel = AccountsViewModel()
-    
     let tableVC = MainTableViewController()
     
     override func viewDidLoad() {
@@ -127,7 +126,7 @@ extension LoginViewController:  UITextFieldDelegate{
         loginButton.setTitleColor(.white, for: .normal)
         loginButton.setTitleColor(.lightGray, for: .focused)
         loginButton.layer.cornerRadius = 15
-        loginButton.backgroundColor = UIColor(red: 84/255, green: 118/255, blue: 171/255, alpha: 1)
+        loginButton.backgroundColor = UIColor(red: 104/255, green: 192/255, blue: 215/255, alpha: 1)
         loginButton.snp.makeConstraints{ maker in
             maker.centerX.equalToSuperview()
             maker.top.equalTo(passwordTextField).inset(70)
@@ -154,7 +153,7 @@ extension LoginViewController:  UITextFieldDelegate{
         }
         //register button
         registerButton.setTitle("register", for: .normal)
-        registerButton.setTitleColor( UIColor(red: 84/255, green: 118/255, blue: 171/255, alpha: 1), for: .normal)
+        registerButton.setTitleColor( UIColor(red: 104/255, green: 192/255, blue: 215/255, alpha: 1), for: .normal)
         registerButton.setTitleColor(.lightGray, for: .focused)
         view.addSubview(registerButton)
         registerButton.snp.makeConstraints{maker in
@@ -183,6 +182,11 @@ extension LoginViewController:  UITextFieldDelegate{
         {
             show(tableVC, sender: loginButton)
             statusLabel.textColor = .systemGreen
+           
+            tableVC.appsViewModel.someKey = self.loginTextField.text!
+            print(tableVC.appsViewModel.someKey)
+            
+            
         }else{
             statusLabel.textColor = .red
         }
@@ -196,6 +200,7 @@ extension LoginViewController:  UITextFieldDelegate{
     }
     //hide keyboard using button
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
         loginTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
         
@@ -203,7 +208,7 @@ extension LoginViewController:  UITextFieldDelegate{
     }
     //hide keyboard pressing anywhere
     override func touchesBegan(_ touches:Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing (true)
+        self.view.endEditing(true)
     }
 
     

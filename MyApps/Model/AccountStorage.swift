@@ -1,34 +1,32 @@
 //
-//  UserStorage.swift
+//  AccountStorage.swift
 //  MyApps
 //
-//  Created by Dinmukhamed on 17.12.2022.
+//  Created by Dinmukhamed on 07.01.2023.
 //
 
 import Foundation
-
-
-
-class UserStorage{
+class AccountStorage{
     let storage = UserDefaults.standard
-    var key = "accounts"
+    var key: String
+    
     init(key: String) {
         self.key = key
     }
     
-    struct UserData: Codable, UserSettings{
+    struct AccountData: Codable, UserSettings{
         var login: String?
         var password: String?
     }
     
-    var accounts:[UserData]
+    var accounts:[AccountData]
     {
         get{
             if let data = storage.value(forKey: key) as? Data{
-               return try! PropertyListDecoder().decode([UserData].self, from: data)
+                return try! PropertyListDecoder().decode([AccountData].self, from: data)
             }
             else{
-                return [UserData]()
+                return [AccountData]()
             }
         }
         set{
@@ -40,8 +38,7 @@ class UserStorage{
     }
     
     func saveAccounts(login:String?, password:String?){
-        let account = UserData(login: login, password: password)
-        accounts.insert(account, at: 0)
+        let account = AccountData(login: login, password: password)
+        accounts.append(account)
     }
 }
-

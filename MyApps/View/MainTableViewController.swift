@@ -8,14 +8,11 @@
 import UIKit
 
 class MainTableViewController: UITableViewController {
-    
-    let appStorage = UserStorage(key: "apps")
+
     let cellId = "accountCell"
-
+    let addEditTVC = AddEditViewController()
+    var appsViewModel = AppsViewModel()
     
-   
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(AddButtonTaped))
@@ -23,14 +20,22 @@ class MainTableViewController: UITableViewController {
         tableView.register(MyTableViewCell.self, forCellReuseIdentifier: cellId)
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
-        
-
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        tableView.reloadData()
     }
     
     @objc func AddButtonTaped(){
+        navigationController?.pushViewController(addEditTVC, animated: true)
+        addEditTVC.appsViewModel.someKey = self.appsViewModel.someKey
+    }
+    @objc func BackButtonTaped(){
         print("tap")
+        navigationController?.popViewController(animated: true)
     }
 
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -40,7 +45,7 @@ class MainTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+        return appsViewModel.setStorage(appsViewModel.someKey).accounts.count
     }
 
     
@@ -58,6 +63,7 @@ class MainTableViewController: UITableViewController {
        // Use the default size for all other rows.
        return 70
     }
+   
     
 
     /*
