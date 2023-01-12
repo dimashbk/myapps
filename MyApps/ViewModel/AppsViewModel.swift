@@ -14,9 +14,9 @@ class AppsViewModel{
 
     
     //registration account
-    public func  userSaveButtonPressed(login: String, password:String){
+    public func  userSaveButtonPressed(login: String, password:String, image: String){
         if (setStorage(someKey).accounts.isEmpty || !userDoesExist(login: login, password: password).0) {
-            setStorage(someKey).saveAccounts(login: login, password: password)
+            setStorage(someKey).saveAccounts(login: login, password: password, image: image)
         }else{
        
             print("no")

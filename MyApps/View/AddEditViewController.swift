@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddEditViewController: UIViewController {
+class AddEditViewController: UIViewController, UIPickerViewDelegate {
     
     let nameLabel = UILabel()
     let loginLabel = UILabel()
@@ -19,13 +19,21 @@ class AddEditViewController: UIViewController {
     let registerQLabel = UILabel()
     let registerButton = UIButton()
     let myImageView = UIImageView()
-    let image = UIImage(named: "AppIcon")
+    let picker = UIPickerView()
+    var image = UIImage(named: "AppIcon")
     var appsViewModel = AppsViewModel()
+    var somename = "AppIcon"
+    var apps = ["steam","instagram","AppIcon","whatsapp","telegram","vk","origin"]
+    
+    
+    
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
         initialize()
+        
+
 
     }
     
@@ -42,7 +50,9 @@ class AddEditViewController: UIViewController {
 
 }
 
-extension AddEditViewController: UITextFieldDelegate{
+extension AddEditViewController: UITextFieldDelegate,UIPickerViewDataSource{
+    
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
@@ -68,6 +78,7 @@ extension AddEditViewController: UITextFieldDelegate{
         passwordTextField.layer.shadowPath = UIBezierPath(roundedRect: loginTextField.bounds, cornerRadius: (loginTextField.frame.height)).cgPath
     }
     private func initialize(){
+        
         view.backgroundColor = .white
         
         //App name label
@@ -123,6 +134,20 @@ extension AddEditViewController: UITextFieldDelegate{
             maker.top.equalTo(passwordLabel).inset(25)
             maker.left.right.equalToSuperview().inset(50)
         }
+       
+        
+        //picker
+        picker.delegate = self
+        picker.dataSource = self
+        
+        view.addSubview(picker)
+        picker.transform = CGAffineTransform(rotationAngle: -90  * (.pi/180))
+        
+        picker.snp.makeConstraints{ maker in
+            maker.centerX.equalToSuperview()
+            maker.width.equalTo(100)
+            maker.top.equalTo(passwordTextField).inset(5)
+        }
         //login button
         view.addSubview(loginButton)
         loginButton.setTitle("Save", for: .normal)
@@ -132,18 +157,46 @@ extension AddEditViewController: UITextFieldDelegate{
         loginButton.backgroundColor = UIColor(red: 104/255, green: 192/255, blue: 215/255, alpha: 1)
         loginButton.snp.makeConstraints{ maker in
             maker.centerX.equalToSuperview()
-            maker.top.equalTo(passwordTextField).inset(70)
+            maker.top.equalTo(passwordTextField).inset(190)
             maker.width.equalTo(100)
             
         }
         //login target
         loginButton.addTarget(self,  action: #selector(loginButtonPressed), for: .touchUpInside)
+        
+    }
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return apps.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+      return 100
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let modeView = UIView()
+        modeView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        let modeLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        modeLabel.textColor = .black
+        modeLabel.text = apps[row]
+        modeLabel.textAlignment = .center
+        modeView.addSubview(modeLabel)
+        
+        // Here the view rotates 90 degree on right side hence we are using positive value.
+        modeView.transform = CGAffineTransform(rotationAngle: 90 * (.pi/180))
+        return modeView
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)  {
+         somename = apps[row]
     }
 
     //loginButton pressed action
     @objc func loginButtonPressed(){
-        appsViewModel.userSaveButtonPressed(login: (loginTextField.text) ?? "", password: passwordTextField.text ?? "")
-        print(appsViewModel.someKey)
+        appsViewModel.userSaveButtonPressed(login: (loginTextField.text) ?? "", password: passwordTextField.text ?? "", image: somename)
     }
     //hide keyboard using button
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

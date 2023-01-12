@@ -12,7 +12,6 @@ class MyTableViewCell: UITableViewCell {
     
     
     let myImageView = UIImageView()
-    let image = UIImage(named: "steam")
     let loginLabel = UILabel()
     let passwordLabel = UILabel()
     let stackView = UIStackView()
@@ -21,7 +20,6 @@ class MyTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         initialize()
-
     }
     
     required init?(coder: NSCoder) {
@@ -48,7 +46,7 @@ extension MyTableViewCell{
         someView.layer.masksToBounds = false
         someView.layer.shadowRadius = 3
         someView.layer.shadowOpacity = 0.5
-        someView.layer.shadowColor = UIColor.blue.cgColor
+        someView.layer.shadowColor = UIColor.purple.cgColor
         someView.layer.shadowPath = UIBezierPath(roundedRect: someView.bounds, cornerRadius: (someView.frame.height / 2)).cgPath
     }
     private func initialize(){
@@ -60,11 +58,8 @@ extension MyTableViewCell{
             maker.right.left.equalTo(contentView).inset(30)
         }
         
-        myImageView.layer.borderWidth = 0.5
         myImageView.contentMode = .scaleAspectFill
-        myImageView.image = image
         someView.addSubview(myImageView)
-        myImageView.layer.cornerRadius = 30
         myImageView.snp.makeConstraints{maker in
             maker.width.height.equalTo(60)
             maker.left.equalToSuperview().inset(50)
@@ -106,6 +101,10 @@ extension MyTableViewCell{
 //        myImageView.widthAnchor.constraint (equalToConstant: self.frame.width / 2 - 10),
 //        myImageView.heightAnchor.constraint (equalToConstant: 25)
 //        ])
+    }
+    func setImage(name: String)-> UIImage{
+        let image = UIImage(named: name)
+        return image!
     }
    
     
