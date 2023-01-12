@@ -22,7 +22,7 @@ class AddEditViewController: UIViewController, UIPickerViewDelegate {
     let picker = UIPickerView()
     var image = UIImage(named: "AppIcon")
     var appsViewModel = AppsViewModel()
-    var somename = "AppIcon"
+    var somename = "steam"
     var apps = ["steam","instagram","AppIcon","whatsapp","telegram","vk","origin"]
     
     
@@ -162,7 +162,7 @@ extension AddEditViewController: UITextFieldDelegate,UIPickerViewDataSource{
             
         }
         //login target
-        loginButton.addTarget(self,  action: #selector(loginButtonPressed), for: .touchUpInside)
+        loginButton.addTarget(self,  action: #selector(saveButtonPressed), for: .touchUpInside)
         
     }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -195,7 +195,7 @@ extension AddEditViewController: UITextFieldDelegate,UIPickerViewDataSource{
     }
 
     //loginButton pressed action
-    @objc func loginButtonPressed(){
+    @objc func saveButtonPressed(){
         appsViewModel.userSaveButtonPressed(login: (loginTextField.text) ?? "", password: passwordTextField.text ?? "", image: somename)
     }
     //hide keyboard using button

@@ -19,16 +19,29 @@ class MainTableViewController: UITableViewController {
         navigationItem.hidesBackButton = false
         tableView.register(MyTableViewCell.self, forCellReuseIdentifier: cellId)
         tableView.separatorStyle = .none
-        tableView.showsVerticalScrollIndicator = false
+        tableView.showsVerticalScrollIndicator = true
+        
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         tableView.reloadData()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1)){
+            self.tableView.reloadData()
+        }
+        
     }
     
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(true)
+//        self.tableView.reloadData()
+//    }
+
     @objc func AddButtonTaped(){
         navigationController?.pushViewController(addEditTVC, animated: true)
         addEditTVC.appsViewModel.someKey = self.appsViewModel.someKey
+        
     }
     @objc func BackButtonTaped(){
         print("tap")
@@ -57,17 +70,18 @@ class MainTableViewController: UITableViewController {
         cell.loginLabel.text = App.login
         cell.passwordLabel.text = App.password
         
-       
-        
         return cell
     }
     override func tableView(_ tableView: UITableView,
                heightForRowAt indexPath: IndexPath) -> CGFloat {
-       // Make the first row larger to accommodate a custom cell.
-
-
-       // Use the default size for all other rows.
        return 70
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        let App = appsViewModel.setStorage(appsViewModel.someKey)
+        App.removeAccounts(row: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
     }
    
     

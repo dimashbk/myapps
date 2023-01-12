@@ -9,7 +9,6 @@ import Foundation
 class AccountStorage{
     let storage = UserDefaults.standard
     var key: String
-    let appImages = ["steam", "instagram"]
     
     init(key: String) {
         self.key = key
@@ -42,5 +41,8 @@ class AccountStorage{
     func saveAccounts(login:String?, password:String?, image: String?){
         let account = AccountData(login: login, password: password, image: image)
         accounts.append(account)
+    }
+    func removeAccounts(row: Int){
+        accounts.remove(at: row)
     }
 }
