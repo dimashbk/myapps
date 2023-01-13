@@ -39,9 +39,18 @@ class MyTableViewCell: UITableViewCell {
 
 }
 extension MyTableViewCell{
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        someView.backgroundColor = .white
+    
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//        someView.layer.cornerRadius = self.frame.height / 2
+//        someView.layer.masksToBounds = false
+//        someView.layer.shadowRadius = 3
+//        someView.layer.shadowOpacity = 0.5
+//        someView.layer.shadowColor = UIColor.purple.cgColor
+//        someView.layer.shadowPath = UIBezierPath(roundedRect: someView.bounds, cornerRadius: (someView.frame.height / 2)).cgPath
+//    }
+    override func layoutIfNeeded() {
+        super.layoutIfNeeded()
         someView.layer.cornerRadius = self.frame.height / 2
         someView.layer.masksToBounds = false
         someView.layer.shadowRadius = 3
@@ -53,6 +62,7 @@ extension MyTableViewCell{
         
 
         contentView.addSubview(someView)
+        someView.backgroundColor = .white
         someView.snp.makeConstraints{ maker in
             maker.top.bottom.equalTo(contentView).inset(5)
             maker.right.left.equalTo(contentView).inset(30)

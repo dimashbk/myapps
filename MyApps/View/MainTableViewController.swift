@@ -27,9 +27,9 @@ class MainTableViewController: UITableViewController {
         super.viewWillAppear(true)
         tableView.reloadData()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1)){
-            self.tableView.reloadData()
-        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1)){
+//            self.tableView.reloadData()
+//        }
         
     }
     
