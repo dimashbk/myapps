@@ -21,9 +21,11 @@ class AddEditViewController: UIViewController, UIPickerViewDelegate {
     let myImageView = UIImageView()
     let picker = UIPickerView()
     var image = UIImage(named: "AppIcon")
+    
     var appsViewModel = AppsViewModel()
-    var somename = "steam"
-    var apps = ["steam","instagram","AppIcon","whatsapp","telegram","vk","origin"]
+    
+    var somename = "github"
+   
     
     
     
@@ -32,9 +34,6 @@ class AddEditViewController: UIViewController, UIPickerViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         initialize()
-        
-
-
     }
     
 
@@ -170,7 +169,7 @@ extension AddEditViewController: UITextFieldDelegate,UIPickerViewDataSource{
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return apps.count
+        return appsViewModel.getApps().count
     }
     
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
@@ -182,7 +181,7 @@ extension AddEditViewController: UITextFieldDelegate,UIPickerViewDataSource{
         modeView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         let modeLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         modeLabel.textColor = .black
-        modeLabel.text = apps[row]
+        modeLabel.text = appsViewModel.getApps()[row]
         modeLabel.textAlignment = .center
         modeView.addSubview(modeLabel)
         
@@ -191,12 +190,13 @@ extension AddEditViewController: UITextFieldDelegate,UIPickerViewDataSource{
         return modeView
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)  {
-         somename = apps[row]
+         somename = appsViewModel.getApps()[row]
     }
 
     //loginButton pressed action
     @objc func saveButtonPressed(){
         appsViewModel.userSaveButtonPressed(login: (loginTextField.text) ?? "", password: passwordTextField.text ?? "", image: somename)
+        navigationController?.popViewController(animated: true)
     }
     //hide keyboard using button
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

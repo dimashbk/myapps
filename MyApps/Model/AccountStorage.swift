@@ -9,6 +9,8 @@ import Foundation
 class AccountStorage{
     let storage = UserDefaults.standard
     var key: String
+    var apps = ["github","instagram","AppIcon","whatsapp","telegram","vk","origin","twitter","snapchat","tiktok","steam","linkedin"]
+    
     
     init(key: String) {
         self.key = key
@@ -18,6 +20,7 @@ class AccountStorage{
         var login: String?
         var password: String?
         var image: String?
+        var status = false
     }
     
     var accounts:[AccountData]
@@ -44,5 +47,9 @@ class AccountStorage{
     }
     func removeAccounts(row: Int){
         accounts.remove(at: row)
+    }
+    func changeStatus(row: Int)
+    {
+        accounts[row].status = !accounts[row].status
     }
 }

@@ -12,6 +12,7 @@ class MainTableViewController: UITableViewController {
     let cellId = "accountCell"
     let addEditTVC = AddEditViewController()
     var appsViewModel = AppsViewModel()
+    var accountsViewModel = AccountsViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,9 +67,16 @@ class MainTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! MyTableViewCell
         let App = appsViewModel.setStorage(appsViewModel.someKey).accounts[indexPath.row]
+        let status = App.status
         cell.myImageView.image = cell.setImage(name: App.image!)
         cell.loginLabel.text = App.login
-        cell.passwordLabel.text = App.password
+        cell.passwordLabel.text = { status in
+            if status == true {
+                return App.password
+            }else{
+                return ""
+            }
+        }(status)
         
         return cell
     }
@@ -83,6 +91,43 @@ class MainTableViewController: UITableViewController {
         App.removeAccounts(row: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .automatic)
     }
+    
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let App = appsViewModel.setStorage(appsViewModel.someKey).accounts[indexPath.row]
+        //creating an alert
+        let alertController = UIAlertController(title: "Acces", message: "Enter your password", preferredStyle: .alert)
+        //alert textfield
+        alertController.addTextField{ (textField) in
+            textField.isSecureTextEntry = true
+        }
+        //alert action
+        let action = UIAlertAction(title: "OK", style: .default) { (action) in
+            if !self.accountsViewModel.passwordAccess(login: self.appsViewModel.someKey, password: alertController.textFields?.first?.text ?? "" ){
+                self.appsViewModel.setStorage(self.appsViewModel.someKey).changeStatus(row: indexPath.row)
+                print((alertController.textFields?.first?.text)! + "+" + self.appsViewModel.someKey)
+                tableView.reloadData()
+            }
+        }
+        alertController.addAction(action)
+        
+        //action for swipe
+        let actionSwipeInstance = UIContextualAction(style: .normal, title: "Password") { _,_,_  in
+            if App.status == false{
+                self.present(alertController, animated: true)
+            }
+            else{
+                self.appsViewModel.setStorage(self.appsViewModel.someKey).changeStatus(row: indexPath.row)
+            }
+            tableView.reloadData()
+        }
+        
+        let actionsConfiguration = UISwipeActionsConfiguration(actions: [actionSwipeInstance])
+        return actionsConfiguration
+    }
+
+   
+    
    
     
 

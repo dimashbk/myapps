@@ -58,6 +58,15 @@ class AccountsViewModel{
         let passwordTest = NSPredicate(format: "SELF MATCHES %@","^(?=.*[a-z])[A-Za-z\\d$@$#!%*?&]{8,}")
         return passwordTest.evaluate(with: password)
     }
+    public func  passwordAccess(login: String, password:String) -> Bool{
+        let userIndex = userDoesExist(login: login, password: password).1!
+        if  login !=  userStorage.accounts[userIndex].login || password != userStorage.accounts[userIndex].password{
+            return true
+        }
+        else{
+            return false
+        }
+    }
    
 }
     

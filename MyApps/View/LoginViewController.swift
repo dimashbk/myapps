@@ -113,6 +113,7 @@ extension LoginViewController:  UITextFieldDelegate{
         }
         //password textField
         self.passwordTextField.delegate = self
+        passwordTextField.isSecureTextEntry = true
         view.addSubview(passwordTextField)
         passwordTextField.borderStyle = .roundedRect
         passwordTextField.placeholder = "Password"
