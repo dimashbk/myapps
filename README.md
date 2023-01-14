@@ -29,3 +29,19 @@ This app is simple keichain for the apps. I have tried to add some UI and practi
 
 
 ![](https://user-images.githubusercontent.com/114899476/212469981-a125d101-4a9b-4b11-99fe-02875a1aa954.gif)
+
+# Installation
+
+to deploy this project run:
+
+```swift
+    pod init
+```
+insert SnapKit:
+```swift
+    pod 'SnapKit'
+```
+install the dependency:
+```swift
+    pod install
+```
