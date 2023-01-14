@@ -27,9 +27,15 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.backButtonTitle = "Logout"
         initialize()
         bindViewModel()
         
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.loginTextField.text = nil
+        self.passwordTextField.text = nil
     }
 
 
@@ -155,7 +161,6 @@ extension LoginViewController:  UITextFieldDelegate{
         //register button
         registerButton.setTitle("register", for: .normal)
         registerButton.setTitleColor( UIColor(red: 104/255, green: 192/255, blue: 215/255, alpha: 1), for: .normal)
-        registerButton.setTitleColor(.lightGray, for: .focused)
         view.addSubview(registerButton)
         registerButton.snp.makeConstraints{maker in
             maker.top.equalTo(loginButton).inset(140)

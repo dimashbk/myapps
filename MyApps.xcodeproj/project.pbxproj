@@ -63,6 +63,8 @@
 		1D1A6C07294CDDF0003C5629 /* Binding */ = {
 			isa = PBXGroup;
 			children = (
+				1D7BF1FF294E278B00809FD2 /* UserStorage.swift */,
+				1DF133842969BCEF005389E8 /* AccountStorage.swift */,
 				1D1A6C08294CDE02003C5629 /* Dynamic.swift */,
 			);
 			path = Binding;
@@ -105,8 +107,6 @@
 			isa = PBXGroup;
 			children = (
 				1D1A6C05294CDDC8003C5629 /* loginModel.swift */,
-				1D7BF1FF294E278B00809FD2 /* UserStorage.swift */,
-				1DF133842969BCEF005389E8 /* AccountStorage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

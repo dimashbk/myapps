@@ -74,7 +74,7 @@ class MainTableViewController: UITableViewController {
             if status == true {
                 return App.password
             }else{
-                return ""
+                return "••••••••"
             }
         }(status)
         
