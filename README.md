@@ -20,3 +20,5 @@ Firstly you have to register on register page and login.
 You will move to the main page where is your apps
 
 ![Снимок экрана 2023-01-14 в 16 59 43_photo-resizer ru](https://user-images.githubusercontent.com/114899476/212468812-44a052c7-4d73-45f6-884a-53d9ae37d485.png)
+
+![]![Studio_Project](https://user-images.githubusercontent.com/114899476/212469663-cb855ca3-b107-4ff5-8cf3-3be22f73c038.gif)
