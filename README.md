@@ -13,12 +13,19 @@ This app is simple keichain for the apps. I have tried to add some UI and practi
 
 # Usage
 
-Firstly you have to register on register page and login.
+## Firstly you have to register on register page and login.
 
 ![Снимок экрана 2023-01-14 в 16 47 28_photo-resizer ru](https://user-images.githubusercontent.com/114899476/212468772-b1ec88a8-7bf8-4d24-8bd2-84ed822fd7d0.png)
 
-You will move to the main page where is your apps
+## You will move to the main page where is your apps
 
 ![Снимок экрана 2023-01-14 в 16 59 43_photo-resizer ru](https://user-images.githubusercontent.com/114899476/212468812-44a052c7-4d73-45f6-884a-53d9ae37d485.png)
 
-![]![Studio_Project](https://user-images.githubusercontent.com/114899476/212469663-cb855ca3-b107-4ff5-8cf3-3be22f73c038.gif)
+## You can add apps using + button, and delete it by swipe to the left
+
+![](https://user-images.githubusercontent.com/114899476/212469663-cb855ca3-b107-4ff5-8cf3-3be22f73c038.gif) ![](https://user-images.githubusercontent.com/114899476/212469805-263ece22-e4da-44da-8025-08f77c80c1cd.gif)
+
+## To see password swipe to the right and enter your password of your account. In order to hide the password just swipe to the right again
+
+
+![](https://user-images.githubusercontent.com/114899476/212469981-a125d101-4a9b-4b11-99fe-02875a1aa954.gif)
