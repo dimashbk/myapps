@@ -18,4 +18,5 @@ Firstly you have to register on register page and login.
 ![Снимок экрана 2023-01-14 в 16 47 28_photo-resizer ru](https://user-images.githubusercontent.com/114899476/212468772-b1ec88a8-7bf8-4d24-8bd2-84ed822fd7d0.png)
 
 You will move to the main page where is your apps
+
 ![Снимок экрана 2023-01-14 в 16 59 43_photo-resizer ru](https://user-images.githubusercontent.com/114899476/212468812-44a052c7-4d73-45f6-884a-53d9ae37d485.png)
