@@ -96,7 +96,7 @@ class MainTableViewController: UITableViewController {
         
         let App = appsViewModel.setStorage(appsViewModel.someKey).accounts[indexPath.row]
         //creating an alert
-        let alertController = UIAlertController(title: "Acces", message: "Enter your password", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Access", message: "Enter your password", preferredStyle: .alert)
         //alert textfield
         alertController.addTextField{ (textField) in
             textField.isSecureTextEntry = true
