@@ -1,7 +1,7 @@
 # MyApps
 
 # Task
-This app is simple keichain for the apps. I have tried to add some UI and practice with constraints. So that is my first project using another pattern and I'm not sure about the realization of MVVM
+This app is simple keychain for the apps. I have tried to add some UI and practice with constraints. So that is my first project using another pattern and I'm not sure about the realization of MVVM
 
 # Description
 ## Tools that i have used:
