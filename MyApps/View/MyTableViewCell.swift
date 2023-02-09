@@ -88,29 +88,6 @@ extension MyTableViewCell{
             maker.left.equalTo(myImageView).inset(100)
             maker.top.equalTo(loginLabel).inset(25)
         }
-       
-        
-        
-        
-        //        nameLabel.text = "Name"
-        //        nameLabel.translatesAutoresizingMaskIntoConstraints = false
-              
-
-//        self.addSubview(nameLabel)
-        
-//
-//        NSLayoutConstraint.activate([
-//        nameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
-//        nameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 5),
-//        nameLabel.widthAnchor.constraint (equalToConstant: self.frame.width / 2 - 10),
-//        nameLabel.heightAnchor.constraint (equalToConstant: 25)
-//        ])
-//        NSLayoutConstraint.activate([
-//        myImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
-//        myImageView.trailingAnchor.constraint(equalTo: self.leadingAnchor, constant: 5),
-//        myImageView.widthAnchor.constraint (equalToConstant: self.frame.width / 2 - 10),
-//        myImageView.heightAnchor.constraint (equalToConstant: 25)
-//        ])
     }
     func setImage(name: String)-> UIImage{
         let image = UIImage(named: name)
