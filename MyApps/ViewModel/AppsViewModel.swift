@@ -11,12 +11,13 @@ class AppsViewModel{
     
     var someKey = ""
     var statusText = Dynamic("")
+    var updateViewData: (() -> ())?
 
     
     //registration account
     public func  userSaveButtonPressed(login: String, password:String, image: String){
         setStorage(someKey).saveAccounts(login: login, password: password, image: image)
-       
+        updateViewData?()
     }
     //checking account for existance
 //    public func userDoesExist(login: String, password:String) -> (Bool,Int?){

@@ -8,6 +8,7 @@
 import Foundation
 
 class AccountsViewModel{
+    
     var statusText = Dynamic("")
     var userStorage = UserStorage(key: "accounts")
     //checking account
@@ -33,6 +34,7 @@ class AccountsViewModel{
         }
         return false
     }
+    
     //registration account
     public func  userRegButtonPressed(login: String, password:String){
         if (userStorage.accounts.isEmpty && AccountsViewModel.isPasswordValid(password)) || (!userDoesExist(login: login, password: password).0 && AccountsViewModel.isPasswordValid(password)) {

@@ -21,9 +21,7 @@ class AddEditViewController: UIViewController, UIPickerViewDelegate {
     let myImageView = UIImageView()
     let picker = UIPickerView()
     var image = UIImage(named: "AppIcon")
-    
     var appsViewModel = AppsViewModel()
-    
     var somename = "github"
    
     
@@ -34,6 +32,11 @@ class AddEditViewController: UIViewController, UIPickerViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         initialize()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.loginTextField.text = nil
+        self.passwordTextField.text = nil
     }
     
 
