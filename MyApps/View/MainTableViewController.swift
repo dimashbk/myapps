@@ -21,18 +21,28 @@ class MainTableViewController: UITableViewController {
         tableView.register(MyTableViewCell.self, forCellReuseIdentifier: cellId)
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = true
-        
+        secondBindViewModel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        tableView.reloadData()
+        self.tableView.reloadData()
+//        tableView.reloadData()
         
 //        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1)){
 //            self.tableView.reloadData()
 //        }
         
     }
+    func secondBindViewModel(){
+        self.appsViewModel.updateViewData = {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+
+
     
 //    override func viewDidAppear(_ animated: Bool) {
 //        super.viewDidAppear(true)
@@ -106,7 +116,6 @@ class MainTableViewController: UITableViewController {
             if !self.accountsViewModel.passwordAccess(login: self.appsViewModel.someKey, password: alertController.textFields?.first?.text ?? "" ){
                 self.appsViewModel.setStorage(self.appsViewModel.someKey).changeStatus(row: indexPath.row)
                 print((alertController.textFields?.first?.text)! + "+" + self.appsViewModel.someKey)
-                tableView.reloadData()
             }
         }
         alertController.addAction(action)
@@ -119,7 +128,6 @@ class MainTableViewController: UITableViewController {
             else{
                 self.appsViewModel.setStorage(self.appsViewModel.someKey).changeStatus(row: indexPath.row)
             }
-            tableView.reloadData()
         }
         
         let actionsConfiguration = UISwipeActionsConfiguration(actions: [actionSwipeInstance])

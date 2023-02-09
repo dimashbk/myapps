@@ -11,7 +11,6 @@ class AccountStorage{
     var key: String
     var apps = ["github","instagram","AppIcon","whatsapp","telegram","vk","origin","twitter","snapchat","tiktok","steam","linkedin"]
     var updateViewData: (() -> ())?
-    
     init(key: String) {
         self.key = key
     }
@@ -44,7 +43,7 @@ class AccountStorage{
     func saveAccounts(login:String?, password:String?, image: String?){
         let account = AccountData(login: login, password: password, image: image)
         accounts.append(account)
-        updateViewData?()
+
     }
     func removeAccounts(row: Int){
         accounts.remove(at: row)
@@ -53,6 +52,6 @@ class AccountStorage{
     func changeStatus(row: Int)
     {
         accounts[row].status = !accounts[row].status
-        updateViewData?()
+
     }
 }

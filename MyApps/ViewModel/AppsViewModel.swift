@@ -19,22 +19,17 @@ class AppsViewModel{
         setStorage(someKey).saveAccounts(login: login, password: password, image: image)
         updateViewData?()
     }
-    //checking account for existance
-//    public func userDoesExist(login: String, password:String) -> (Bool,Int?){
-//        var doesExist = (false, -1)
-//        for i in 0...(setStorage(someKey).accounts.count - 1){
-//            if login == setStorage(someKey).accounts[i].login
-//            {
-//                doesExist = (true, i)
-//            }
-//        }
-//        return doesExist
-//    }
-//
+    func userDelete(index: Int)
+    {
+        setStorage(someKey).removeAccounts(row: index)
+        updateViewData?()
+    }
+    //setting storage
     func setStorage(_ key: String) -> AccountStorage{
         let accountStorage = AccountStorage(key: key)
         return accountStorage
     }
+    //getting apps from storage
     func getApps() -> [String]
     {
         return setStorage(someKey).apps

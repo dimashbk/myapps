@@ -12,7 +12,6 @@ import Foundation
 class UserStorage{
     let storage = UserDefaults.standard
     var key = "accounts"
-    var updateViewData: (() -> ())?
     init(key: String) {
         self.key = key
     }
@@ -43,7 +42,7 @@ class UserStorage{
     func saveAccounts(login:String?, password:String?){
         let account = UserData(login: login, password: password)
         accounts.insert(account, at: 0)
-        updateViewData?()
+
     }
 }
 
