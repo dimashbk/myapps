@@ -22,6 +22,7 @@ class MainTableViewController: UITableViewController {
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = true
         secondBindViewModel()
+        firstBindViewModel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,13 +31,13 @@ class MainTableViewController: UITableViewController {
 
         
     }
-//    func firstBindViewModel(){
-//        self.accountsViewModel.updateViewData = {
-//            DispatchQueue.main.async {
-//                self.tableView.reloadData()
-//            }
-//        }
-//    }
+    func firstBindViewModel(){
+        self.accountsViewModel.updateViewData = {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
     func secondBindViewModel(){
         self.appsViewModel.updateViewData = {
             DispatchQueue.main.async {

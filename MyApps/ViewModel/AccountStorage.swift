@@ -15,12 +15,7 @@ class AccountStorage{
         self.key = key
     }
     
-    struct AccountData: Codable, UserSettings{
-        var login: String?
-        var password: String?
-        var image: String?
-        var status = false
-    }
+    
     
     var accounts:[AccountData]
     {

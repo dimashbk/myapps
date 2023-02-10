@@ -10,19 +10,16 @@ import Foundation
 
 
 class UserStorage{
+    
     let storage = UserDefaults.standard
     var key = "accounts"
     init(key: String) {
         self.key = key
     }
-    
-    struct UserData: Codable, UserSettings{
-        var login: String?
-        var password: String?
-    }
-    
+
     var accounts:[UserData]
     {
+        
         get{
             if let data = storage.value(forKey: key) as? Data{
                return try! PropertyListDecoder().decode([UserData].self, from: data)
@@ -40,7 +37,8 @@ class UserStorage{
     }
     
     func saveAccounts(login:String?, password:String?){
-        let account = UserData(login: login, password: password)
+        
+        let account = UserData(login: login ?? "", password: password ?? "")
         accounts.insert(account, at: 0)
 
     }

@@ -33,6 +33,7 @@ class AppsViewModel{
     func getApps() -> [String]
     {
         return setStorage(someKey).apps
+        
     }
    
 }

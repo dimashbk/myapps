@@ -8,12 +8,15 @@
 import Foundation
 
 protocol UserSettings{
-    var login: String? {get set}
-    var password: String?{get set}
+    
+    var login: String {get set}
+    var password: String{get set}
+    
 }
 
-struct User: UserSettings{
-    var login: String?
-    var password: String?
+struct UserData: Codable, UserSettings{
+    
+    var login: String
+    var password: String
+    
 }
-
