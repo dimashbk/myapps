@@ -52,6 +52,7 @@ class AccountStorage{
     func changeStatus(row: Int)
     {
         accounts[row].status = !accounts[row].status
+        updateViewData?()
 
     }
 }

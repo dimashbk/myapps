@@ -30,6 +30,13 @@ class MainTableViewController: UITableViewController {
 
         
     }
+//    func firstBindViewModel(){
+//        self.accountsViewModel.updateViewData = {
+//            DispatchQueue.main.async {
+//                self.tableView.reloadData()
+//            }
+//        }
+//    }
     func secondBindViewModel(){
         self.appsViewModel.updateViewData = {
             DispatchQueue.main.async {
@@ -105,6 +112,7 @@ class MainTableViewController: UITableViewController {
             if !self.accountsViewModel.passwordAccess(login: self.appsViewModel.someKey, password: alertController.textFields?.first?.text ?? "" ){
                 self.appsViewModel.setStorage(self.appsViewModel.someKey).changeStatus(row: indexPath.row)
                 print((alertController.textFields?.first?.text)! + "+" + self.appsViewModel.someKey)
+                tableView.reloadData()
             }
         }
         alertController.addAction(action)
@@ -117,8 +125,9 @@ class MainTableViewController: UITableViewController {
             else{
                 self.appsViewModel.setStorage(self.appsViewModel.someKey).changeStatus(row: indexPath.row)
             }
+            tableView.reloadData()
         }
-        
+
         let actionsConfiguration = UISwipeActionsConfiguration(actions: [actionSwipeInstance])
         return actionsConfiguration
     }
