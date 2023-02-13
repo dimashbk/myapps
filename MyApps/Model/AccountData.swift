@@ -14,7 +14,7 @@ protocol AccountSettings{
     var status: Bool {get set}
     
 }
-struct AccountData: Codable, AccountSettings{
+struct AccountData: Codable, AccountSettings {
     
     var login: String?
     var password: String?

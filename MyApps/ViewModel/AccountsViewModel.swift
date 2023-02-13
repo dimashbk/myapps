@@ -7,7 +7,7 @@
 
 import Foundation
 
-class AccountsViewModel{
+class AccountsViewModel {
     
     var statusText = Dynamic("")
     var userStorage = UserStorage(key: "accounts")

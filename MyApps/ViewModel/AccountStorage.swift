@@ -6,19 +6,24 @@
 //
 
 import Foundation
-class AccountStorage{
+
+class AccountStorage {
+    
     let storage = UserDefaults.standard
     var key: String
-    var apps = ["github","instagram","AppIcon","whatsapp","telegram","vk","origin","twitter","snapchat","tiktok","steam","linkedin"]
-    var updateViewData: (() -> ())?
+    var apps = ["github","instagram",
+                "AppIcon","whatsapp","telegram",
+                "vk","origin","twitter","snapchat",
+                "tiktok","steam","linkedin"]
+//    var updateViewData: (() -> ())?
+    
     init(key: String) {
         self.key = key
     }
     
     
     
-    var accounts:[AccountData]
-    {
+    var accounts:[AccountData] {
         get{
             if let data = storage.value(forKey: key) as? Data{
                 return try! PropertyListDecoder().decode([AccountData].self, from: data)
@@ -42,12 +47,12 @@ class AccountStorage{
     }
     func removeAccounts(row: Int){
         accounts.remove(at: row)
-        updateViewData?()
+//        updateViewData?()
     }
     func changeStatus(row: Int)
     {
         accounts[row].status = !accounts[row].status
-        updateViewData?()
+//        updateViewData?()
 
     }
 }

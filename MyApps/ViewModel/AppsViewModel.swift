@@ -7,7 +7,7 @@
 
 import Foundation
 
-class AppsViewModel{
+class AppsViewModel {
     
     var someKey = ""
     var statusText = Dynamic("")
@@ -30,8 +30,7 @@ class AppsViewModel{
         return accountStorage
     }
     //getting apps from storage
-    func getApps() -> [String]
-    {
+    func getApps() -> [String] {
         return setStorage(someKey).apps
         
     }

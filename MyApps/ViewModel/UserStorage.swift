@@ -7,9 +7,7 @@
 
 import Foundation
 
-
-
-class UserStorage{
+class UserStorage {
     
     let storage = UserDefaults.standard
     var key = "accounts"
