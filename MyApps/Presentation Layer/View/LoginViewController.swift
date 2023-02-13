@@ -22,9 +22,10 @@ class LoginViewController: UIViewController {
     let myImageView = UIImageView()
     let image = UIImage(named: "AppIcon")
     
-    var loginViewModel = AccountsViewModel()
+    var loginViewModel: AccountsViewModel?
     let tableVC = MainTableViewController()
     var coordinator: LoginCoordinator?
+    var configurator: LoginAssembly?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -174,7 +175,7 @@ extension LoginViewController:  UITextFieldDelegate{
     }
     //binding viewModel
     func bindViewModel(){
-        loginViewModel.statusText.bind({ (statusText) in
+        loginViewModel?.statusText.bind({ (statusText) in
             DispatchQueue.main.async {
                 self.statusLabel.text = statusText
             }
@@ -185,7 +186,7 @@ extension LoginViewController:  UITextFieldDelegate{
     //loginButton pressed action
     @objc func loginButtonPressed(){
         
-        if  loginViewModel.userButtonPressed(login: (loginTextField.text) ?? "", password: passwordTextField.text ?? "")
+        if  loginViewModel!.userButtonPressed(login: (loginTextField.text) ?? "", password: passwordTextField.text ?? "")
         {
             show(tableVC, sender: loginButton)
             statusLabel.textColor = .systemGreen
