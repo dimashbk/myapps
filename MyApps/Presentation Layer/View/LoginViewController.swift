@@ -24,6 +24,7 @@ class LoginViewController: UIViewController {
     
     var loginViewModel = AccountsViewModel()
     let tableVC = MainTableViewController()
+    var coordinator: LoginCoordinator?
     
     override func viewDidLoad() {
         super.viewDidLoad()
