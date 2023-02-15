@@ -12,6 +12,7 @@ import UIKit
 enum Event{
     case buttonTapped
     case toTableVC
+    case toAddVC
 }
 struct Navigation{
     let type: Event

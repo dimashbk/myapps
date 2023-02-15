@@ -7,7 +7,9 @@
 
 import UIKit
 
-class AddEditViewController: UIViewController, UIPickerViewDelegate {
+class AddEditViewController: UIViewController, UIPickerViewDelegate, Coordinating {
+    var coordinator: Coordinator?
+    
     
     let nameLabel = UILabel()
     let loginLabel = UILabel()

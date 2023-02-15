@@ -20,6 +20,7 @@
 		1D5129FC2996869A00CCADDC /* AccountData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5129FB2996869A00CCADDC /* AccountData.swift */; };
 		1D7BF1FE294D935300809FD2 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BF1FD294D935300809FD2 /* RegisterViewController.swift */; };
 		1D7BF200294E278B00809FD2 /* UserStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BF1FF294E278B00809FD2 /* UserStorage.swift */; };
+		1DCF0B4C299D467100771977 /* TableViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCF0B4B299D467100771977 /* TableViewCoordinator.swift */; };
 		1DF1337F29688375005389E8 /* AddEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF1337E29688375005389E8 /* AddEditViewController.swift */; };
 		1DF133852969BCEF005389E8 /* AccountStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF133842969BCEF005389E8 /* AccountStorage.swift */; };
 		1DF133872969BE10005389E8 /* AppsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF133862969BE10005389E8 /* AppsViewModel.swift */; };
@@ -45,6 +46,7 @@
 		1D5129FB2996869A00CCADDC /* AccountData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountData.swift; sourceTree = "<group>"; };
 		1D7BF1FD294D935300809FD2 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		1D7BF1FF294E278B00809FD2 /* UserStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStorage.swift; sourceTree = "<group>"; };
+		1DCF0B4B299D467100771977 /* TableViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCoordinator.swift; sourceTree = "<group>"; };
 		1DF1337E29688375005389E8 /* AddEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditViewController.swift; sourceTree = "<group>"; };
 		1DF133842969BCEF005389E8 /* AccountStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountStorage.swift; sourceTree = "<group>"; };
 		1DF133862969BE10005389E8 /* AppsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsViewModel.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 			children = (
 				1D484D21299CB996000BE83F /* Coordinator.swift */,
 				1D484D23299CBA83000BE83F /* MainCoordinator.swift */,
+				1DCF0B4B299D467100771977 /* TableViewCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				1D1A6C0B294CDE4A003C5629 /* AccountsViewModel.swift in Sources */,
 				1DF8AB28299AB02D0044E1E0 /* LoginAseembly.swift in Sources */,
 				1D484D22299CB996000BE83F /* Coordinator.swift in Sources */,
+				1DCF0B4C299D467100771977 /* TableViewCoordinator.swift in Sources */,
 				1D1A6C06294CDDC8003C5629 /* loginModel.swift in Sources */,
 				1DF1337F29688375005389E8 /* AddEditViewController.swift in Sources */,
 				1DF133852969BCEF005389E8 /* AccountStorage.swift in Sources */,

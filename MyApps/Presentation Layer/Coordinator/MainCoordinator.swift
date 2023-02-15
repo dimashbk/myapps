@@ -25,6 +25,11 @@ final class MainCoordinator: Coordinator{
             vc.coordinator = self
             vc.appsViewModel.someKey = type.key ?? ""
             navigationController?.pushViewController(vc, animated: true)
+        case .toAddVC:
+            let vc: AddEditViewController & Coordinating = AddEditViewController()
+            vc.coordinator = self
+            vc.appsViewModel.someKey = type.key ?? ""
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
     

@@ -49,12 +49,10 @@ class MainTableViewController: UITableViewController, Coordinating {
     }
 
     @objc func AddButtonTaped(){
-        navigationController?.pushViewController(addEditTVC, animated: true)
-        addEditTVC.appsViewModel.someKey = self.appsViewModel.someKey
-        
+        let key = self.appsViewModel.someKey
+        coordinator?.eventOccured(type: Navigation(type: .toAddVC, key: key))
     }
     @objc func BackButtonTaped(){
-        print("tap")
         navigationController?.popViewController(animated: true)
     }
 
