@@ -7,7 +7,9 @@
 
 import UIKit
 
-class MainTableViewController: UITableViewController {
+class MainTableViewController: UITableViewController, Coordinating {
+    var coordinator: Coordinator?
+    
 
     let cellId = "accountCell"
     let addEditTVC = AddEditViewController()

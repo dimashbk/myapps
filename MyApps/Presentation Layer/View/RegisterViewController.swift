@@ -8,7 +8,9 @@
 import UIKit
 import SnapKit
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: UIViewController, Coordinating{
+    var coordinator: Coordinator?
+    
     
     let nameLabel = UILabel()
     let loginLabel = UILabel()
