@@ -188,9 +188,10 @@ extension LoginViewController:  UITextFieldDelegate{
         
         if  loginViewModel.userButtonPressed(login: (loginTextField.text) ?? "", password: passwordTextField.text ?? "")
         {
-            show(tableVC, sender: loginButton)
+            let key = self.loginTextField.text ?? ""
+            coordinator?.eventOccured(type: Navigation(type: .toTableVC, key: key))
             statusLabel.textColor = .systemGreen
-            tableVC.appsViewModel.someKey = self.loginTextField.text!
+
         
         }else{
             statusLabel.textColor = .red
@@ -200,7 +201,7 @@ extension LoginViewController:  UITextFieldDelegate{
     }
     
     @objc func registerButtonPressed(){
-        coordinator?.eventOccured(type: .buttonTapped)
+        coordinator?.eventOccured(type: Navigation(type: .buttonTapped, key: nil) )
     }
     //hide keyboard using button
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

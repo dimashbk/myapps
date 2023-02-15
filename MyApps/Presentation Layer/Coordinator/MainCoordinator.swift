@@ -8,11 +8,12 @@
 import Foundation
 import UIKit
 
-class MainCoordinator: Coordinator{
+final class MainCoordinator: Coordinator{
     var navigationController: UINavigationController?
     
-    func eventOccured(type: Event) {
-        switch type{
+    func eventOccured(type: Navigation) {
+        
+        switch type.type{
             
         case .buttonTapped:
             var vc: UIViewController & Coordinating = RegisterViewController()
@@ -20,14 +21,14 @@ class MainCoordinator: Coordinator{
             navigationController?.pushViewController(vc, animated: true)
             
         case .toTableVC:
-            var vc: UIViewController & Coordinating = MainTableViewController()
+            let vc: MainTableViewController & Coordinating = MainTableViewController()
             vc.coordinator = self
+            vc.appsViewModel.someKey = type.key ?? ""
             navigationController?.pushViewController(vc, animated: true)
-            
         }
-
-        
     }
+    
+    var children: [Coordinator]? = nil
     
     func start() {
         var vc: UIViewController & Coordinating = LoginViewController() 

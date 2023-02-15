@@ -13,11 +13,17 @@ enum Event{
     case buttonTapped
     case toTableVC
 }
-
+struct Navigation{
+    let type: Event
+    let key: String?
+    
+}
 protocol Coordinator {
     var navigationController: UINavigationController? { get set }
 
-    func eventOccured(type: Event)
+    func eventOccured(type: Navigation)
+    
+    var children: [Coordinator]? { get set }
     
     func start()
 }
