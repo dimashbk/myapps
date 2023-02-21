@@ -19,7 +19,6 @@ final class MainCoordinator: Coordinator{
             var vc: UIViewController & Coordinating = RegisterViewController()
             vc.coordinator = self
             navigationController?.pushViewController(vc, animated: true)
-            
         case .toTableVC:
             let vc: MainTableViewController & Coordinating = MainTableViewController()
             vc.coordinator = self

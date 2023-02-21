@@ -47,12 +47,10 @@ class AccountStorage {
     }
     func removeAccounts(row: Int){
         accounts.remove(at: row)
-//        updateViewData?()
     }
     func changeStatus(row: Int)
     {
         accounts[row].status = !accounts[row].status
-//        updateViewData?()
 
     }
 }

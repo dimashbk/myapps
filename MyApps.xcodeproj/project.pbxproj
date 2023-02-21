@@ -20,13 +20,11 @@
 		1D5129FC2996869A00CCADDC /* AccountData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5129FB2996869A00CCADDC /* AccountData.swift */; };
 		1D7BF1FE294D935300809FD2 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BF1FD294D935300809FD2 /* RegisterViewController.swift */; };
 		1D7BF200294E278B00809FD2 /* UserStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7BF1FF294E278B00809FD2 /* UserStorage.swift */; };
-		1DCF0B4C299D467100771977 /* TableViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCF0B4B299D467100771977 /* TableViewCoordinator.swift */; };
 		1DF1337F29688375005389E8 /* AddEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF1337E29688375005389E8 /* AddEditViewController.swift */; };
 		1DF133852969BCEF005389E8 /* AccountStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF133842969BCEF005389E8 /* AccountStorage.swift */; };
 		1DF133872969BE10005389E8 /* AppsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF133862969BE10005389E8 /* AppsViewModel.swift */; };
 		1DF297EA2955CBF500040CFC /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF297E92955CBF500040CFC /* MainTableViewController.swift */; };
 		1DF297EC2955CD7800040CFC /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF297EB2955CD7800040CFC /* MyTableViewCell.swift */; };
-		1DF8AB28299AB02D0044E1E0 /* LoginAseembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF8AB27299AB02D0044E1E0 /* LoginAseembly.swift */; };
 		900B94CE532B2189A810621F /* Pods_MyApps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0ABD415A3C0E0C9D47A67D5 /* Pods_MyApps.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,13 +44,11 @@
 		1D5129FB2996869A00CCADDC /* AccountData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountData.swift; sourceTree = "<group>"; };
 		1D7BF1FD294D935300809FD2 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		1D7BF1FF294E278B00809FD2 /* UserStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStorage.swift; sourceTree = "<group>"; };
-		1DCF0B4B299D467100771977 /* TableViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCoordinator.swift; sourceTree = "<group>"; };
 		1DF1337E29688375005389E8 /* AddEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditViewController.swift; sourceTree = "<group>"; };
 		1DF133842969BCEF005389E8 /* AccountStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountStorage.swift; sourceTree = "<group>"; };
 		1DF133862969BE10005389E8 /* AppsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsViewModel.swift; sourceTree = "<group>"; };
 		1DF297E92955CBF500040CFC /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		1DF297EB2955CD7800040CFC /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
-		1DF8AB27299AB02D0044E1E0 /* LoginAseembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAseembly.swift; sourceTree = "<group>"; };
 		ACFBFD923018161695EECF71 /* Pods-MyApps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyApps.release.xcconfig"; path = "Target Support Files/Pods-MyApps/Pods-MyApps.release.xcconfig"; sourceTree = "<group>"; };
 		D0ABD415A3C0E0C9D47A67D5 /* Pods_MyApps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyApps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCC3464A69FF7597E1260768 /* Pods-MyApps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyApps.debug.xcconfig"; path = "Target Support Files/Pods-MyApps/Pods-MyApps.debug.xcconfig"; sourceTree = "<group>"; };
@@ -171,7 +167,6 @@
 		1DF8AB22299AABCE0044E1E0 /* Presentation Layer */ = {
 			isa = PBXGroup;
 			children = (
-				1DF8AB24299AAC4E0044E1E0 /* Configurator */,
 				1DF8AB23299AAC420044E1E0 /* Coordinator */,
 				1D2BE08F294CD84A00AB13DD /* View */,
 				1D2BE08E294CD84200AB13DD /* ViewModel */,
@@ -184,17 +179,8 @@
 			children = (
 				1D484D21299CB996000BE83F /* Coordinator.swift */,
 				1D484D23299CBA83000BE83F /* MainCoordinator.swift */,
-				1DCF0B4B299D467100771977 /* TableViewCoordinator.swift */,
 			);
 			path = Coordinator;
-			sourceTree = "<group>";
-		};
-		1DF8AB24299AAC4E0044E1E0 /* Configurator */ = {
-			isa = PBXGroup;
-			children = (
-				1DF8AB27299AB02D0044E1E0 /* LoginAseembly.swift */,
-			);
-			path = Configurator;
 			sourceTree = "<group>";
 		};
 		A884EE65534D41410CFA6AF5 /* Frameworks */ = {
@@ -338,9 +324,7 @@
 				1D7BF1FE294D935300809FD2 /* RegisterViewController.swift in Sources */,
 				1DF297EA2955CBF500040CFC /* MainTableViewController.swift in Sources */,
 				1D1A6C0B294CDE4A003C5629 /* AccountsViewModel.swift in Sources */,
-				1DF8AB28299AB02D0044E1E0 /* LoginAseembly.swift in Sources */,
 				1D484D22299CB996000BE83F /* Coordinator.swift in Sources */,
-				1DCF0B4C299D467100771977 /* TableViewCoordinator.swift in Sources */,
 				1D1A6C06294CDDC8003C5629 /* loginModel.swift in Sources */,
 				1DF1337F29688375005389E8 /* AddEditViewController.swift in Sources */,
 				1DF133852969BCEF005389E8 /* AccountStorage.swift in Sources */,

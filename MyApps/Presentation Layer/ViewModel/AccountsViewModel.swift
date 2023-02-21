@@ -64,9 +64,7 @@ class AccountsViewModel {
             
             if userData.login == userStorage.accounts[i].login
             {
-                
                 doesExist = (true, i)
-                
             }
         }
         return doesExist
@@ -86,15 +84,11 @@ class AccountsViewModel {
         if  login !=  userStorage.accounts[userIndex].login ||
             password != userStorage.accounts[userIndex].password
         {
-            
             return true
-
         }
         else
         {
-            
             return false
-            
         }
         
     }
